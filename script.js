@@ -90,55 +90,39 @@ track.addEventListener('mouseleave', () => {
 
 // FUNCIONES CARROUSEL ARREGLOS
 
-//step 1: get DOM
-let nextDom = document.getElementById('next');
-let prevDom = document.getElementById('prev');
+     // ===== Carrusel funcional =====
 
-let carouselDom = document.querySelector('.carousel');
-let SliderDom = carouselDom.querySelector('.carousel .list');
-let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
-let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-let timeDom = document.querySelector('.carousel .time');
+const list = document.querySelector(".carousel .list");
+const items = document.querySelectorAll(".carousel .list .item");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
 
-thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-let timeRunning = 3000;
-let timeAutoNext = 7000;
+let currentIndex = 0;
+const totalItems = items.length;
 
-nextDom.onclick = function(){
-    showSlider('next');    
+function showItem(index) {
+  items.forEach((item, i) => {
+    item.style.display = i === index ? "block" : "none";
+  });
 }
 
-prevDom.onclick = function(){
-    showSlider('prev');    
+function showNext() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  showItem(currentIndex);
 }
-let runTimeOut;
-let runNextAuto = setTimeout(() => {
-    next.click();
-}, timeAutoNext)
-function showSlider(type){
-    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
-    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
-    
-    if(type === 'next'){
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-    }else{
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-    }
-    clearTimeout(runTimeOut);
-    runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-    }, timeRunning);
 
-    clearTimeout(runNextAuto);
-    runNextAuto = setTimeout(() => {
-        next.click();
-    }, timeAutoNext)
+function showPrev() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  showItem(currentIndex);
 }
+
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);
+
+setInterval(showNext, 5000); // cambia automáticamente cada 5 segundos
+
+showItem(currentIndex);
+
 
 
 
@@ -218,10 +202,13 @@ function showSlider(type){
       cartDropdown.style.display = "none";
     }
   });
+  
+
+
+  
 
 
 
 
-
-
+  
 
