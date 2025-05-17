@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosalías</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .oculto { display: none; }
+      .ingredientes, #categoria { text-align: center; margin-top: 40px; }
+      .ingrediente-opciones img {
+        width: 100px;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .ingrediente-opciones img:hover {
+        transform: scale(1.2);
+      }
+
+      main {
+        margin-top: 400px;
+      }
+    </style>
+</head>
+<body>
+    <div class="logo-prin">
+        <img src="Imagenes/logo principal.png" alt="Logo Rosalías">
+    </div>
+    <div class="video-1">
+        <video src="videos/background.mp4" loop muted autoplay></video>
+    </div>
+
+    <header class="header">
+        <ul class="menu-1">
+            <a class="item" href="index.html">Inicio</a>
+            <a class="item" href="Desayunos.html">Desayunos</a>
+            <a class="item" href="#">Diseños Florales</a>
+        </ul>
+        <label for="menu">
+            <img src="Imagenes/menu.png" class="menu-icono" alt="Menú">
+        </label>
+        <div class="menu-2">
+            <input type="text" placeholder="Buscar">
+            <a href="#"><img src="Imagenes/carrito.png" alt="Carrito"></a>
+        </div>
+    </header>
+
+    
+    <main class="main">
+      <section class="section-dinamico">
+        <div class="vista-previa">
+          <h1>VISTA PREVIA</h1>
+          <div class="img-previa" ondrop="drop(event)" ondragover="allowDrop(event)" style="position: relative;">
+            <img src="Imagenes/cajas personalizadas/blanco1.png" alt="">
+            <div id="contenido-canasto" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+            <img id="canasto-frente" src="Imagenes/cajas personalizadas/blancofrontal1.png" style="position: absolute; top: 0; left: 100px; z-index: 3;pointer-events: none;">
+            <button>CAMBIAR CANASTO</button>
+            
+          </div>
+        </div>
+      </section>
+
+      <div class="modal" style="display: none;">
+        <div class="modal-content">
+          <h2>Canasto Blanco</h2>
+          <div class="modal-options">
+            <img src="Imagenes/cajas personalizadas/blanco1.png" alt="Canasto Cuadrado" onclick="changeBasket('Imagenes/cajas personalizadas/blanco1.png')">
+            <img src="Imagenes/cajas personalizadas/blanco2.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/blanco2.png')">
+            <img src="Imagenes/cajas personalizadas/blanca3.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/blanca3.png')">
+          </div>
+          <h2>Canasto Negro</h2>
+          <div class="modal-options">
+            <img src="Imagenes/cajas personalizadas/negro1.png" alt="Canasto Cuadrado" onclick="changeBasket('Imagenes/cajas personalizadas/negro1.png')">
+            <img src="Imagenes/cajas personalizadas/negro2.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/negro2.png')">
+            <img src="Imagenes/cajas personalizadas/negro3.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/negro3.png')">
+          </div>
+          <h2>Canasto Rosados</h2>
+          <div class="modal-options">
+            <img src="Imagenes/cajas personalizadas/rosada1.png" alt="Canasto Cuadrado" onclick="changeBasket('Imagenes/cajas personalizadas/rosada1.png')">
+            <img src="Imagenes/cajas personalizadas/rosada2.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/rosada2.png')">
+            <img src="Imagenes/cajas personalizadas/rosada3.png" alt="Canasto Redondo" onclick="changeBasket('Imagenes/cajas personalizadas/rosada3.png')">
+          </div>
+          <button class="close-modal" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+
+
+      <section class="buttons-toppins">
+        <div class="diseño-botones">
+          <h1>¿QUE DESEAS AGREGAR ?</h1>
+          <div class="botones-img">
+            <!-- Botones principales -->
+              <button class="boton-toppin boton1"><img src="Imagenes/cajas personalizadas/botones/fresa.png" alt="" draggable="true"></button>
+              <button class="boton-toppin boton2"><img src="Imagenes/cajas personalizadas/botones/rosas.png" alt=""></button>
+              <button class="boton-toppin boton3"><img src="Imagenes/cajas personalizadas/botones/bebidas.png" alt=""></button>
+              <button class="boton-toppin boton4"><img src="Imagenes/cajas personalizadas/botones/globos.png" alt=""></button>
+              <button class="boton-toppin boton5"><img src="Imagenes/cajas personalizadas/botones/pasteles.png" alt=""></button>
+              <button class="boton-toppin boton6"><img src="Imagenes/cajas personalizadas/botones/peluches.png" alt=""></button>
+
+          </div>
+        </div>
+      </section> 
+
+      <div class="subopciones-toppin" id="sub-1" style="display: none;">
+        <button onclick="seleccionarTopping('Fresa con chocolate')"><img draggable="true" src="Imagenes/cajas personalizadas/botones/subopciones/fresas/1.png" alt="Chocolate"><h3>Chocolate</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/fresas/rosada.png" alt=""><h3>Rosada</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/fresas/blanca.png" alt=""><h3>Blanco</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/fresas/ferrero roche x3.png" alt=""><h3>Ferrero X3</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/fresas/ferrero roche x1.png" alt=""><h3>Ferrero x1</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+      <div class="subopciones-toppin" id="sub-2" style="display: none;">
+        <button onclick="seleccionarTopping('Rosa roja')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/1.png" alt=""><h3>Rosa Rosada</h3></button>
+        <button onclick="seleccionarTopping('Rosa blanca')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/2.png" alt=""><h3>Rosa Roja</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/3.png" alt=""><h3>Rosa Blanca</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/4.png" alt=""><h3>Rosa Amarilla</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/5.png" alt=""><h3>Rosa Morada</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/6.png" alt=""><h3>Rosa Azul</h3></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/flores/7.png" alt="">Girasol</button>
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+      <div class="subopciones-toppin" id="sub-3" style="display: none;">
+        <button onclick="seleccionarTopping('Jugo de naranja')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/naranja caja.png" alt=""></button>
+        <button onclick="seleccionarTopping('Café frío')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/hatsu.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/corona.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/hit dentro caja.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/baileys.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/jp chenet.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/vino.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/bebidas/granizado.png" alt=""></button>
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+      <div class="subopciones-toppin" id="sub-4" style="display: none;">
+        <button onclick="seleccionarTopping('Globo corazón')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/corazon1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Globo feliz cumpleaños')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/corazon2.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/corazon3.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/globo1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/globo2.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/globos3.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/globos/globo4.png" alt=""></button>
+        
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+      <div class="subopciones-toppin" id="sub-5" style="display: none;">
+        <button onclick="seleccionarTopping('Mini pastel chocolate')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/frutas.png" alt=""></button>
+        <button onclick="seleccionarTopping('Mini pastel vainilla')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/sandiwch1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/huevos.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/corazonpastel1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/corazonpastel2.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/corazonpastel3.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/pastel1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/comida/pastel2.png" alt=""></button>
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+      <div class="subopciones-toppin" id="sub-6" style="display: none;">
+        <button onclick="seleccionarTopping('Peluche oso')"><img src="Imagenes/cajas personalizadas/botones/subopciones/accesorios/virgen.png" alt=""></button>
+        <button onclick="seleccionarTopping('Peluche unicornio')"><img src="Imagenes/cajas personalizadas/botones/subopciones/accesorios/peluche1.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/accesorios/peluche2.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')"><img src="Imagenes/cajas personalizadas/botones/subopciones/accesorios/peluche3.png" alt=""></button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="seleccionarTopping('Fresa natural')">Fresa natural</button>
+        <button onclick="volverOpciones()">Volver</button>
+      </div>
+      
+  
+    </main>
+
+
+
+      
+
+
+    <footer class="footer">
+      <section class="footer-1">
+          <div class="footer-logo">
+              <img src="Imagenes/logo principal.png" alt="">
+          </div>
+
+          <div class="linea-vertical"></div>
+
+          <div class="texto-footer">
+          <h1>SOBRE NOSOTROS</h1>
+          <p>Rosalías es una empresa especializada en detalles que inspiran emociones, ofreciendo desayunos sorpresa, arreglos florales y regalos personalizados. Cada entrega está pensada para celebrar, sorprender y transmitir cariño en fechas especiales o cualquier día del año.</p>
+          </div>
+
+          <div class="linea-vertical"></div>
+
+          
+          
+          <div class="imagenes-footer">
+              <h1 class="contactanos-1">Contactanos</h1>
+              <div class="iconos-contact">
+              <a href="https://api.whatsapp.com/send?phone=573142021376&text=%20%C2%A1Hola!%20%F0%9F%8C%B7Quiero%20ver%20el%20cat%C3%A1logo%20de%20productos%20%F0%9F%98%8D" target="_blank"><img src="contactanos/whatsapp.png" alt=""></a>
+
+              <a href="https://www.instagram.com/rosaliasneiva/" target="_blank"><img src="contactanos/instagram.png" alt=""></a>
+              </div>
+              
+          </div>
+      </section>
+    </footer>
+
+
+
+    
+
+    <script src="script.js"></script>
+
+
+
+    <script>
+      // Mostrar modal
+      document.querySelector(".img-previa button").addEventListener("click", () => {
+        document.querySelector(".modal").style.display = "block";
+      });
+    
+      // Ocultar modal
+      function closeModal() {
+        document.querySelector(".modal").style.display = "none";
+      }
+    
+      // Cambiar canasto
+      function changeBasket(imagePath) {
+        const previewImage = document.querySelector(".img-previa img");
+        previewImage.src = imagePath;
+        closeModal();   
+      }
+
+
+
+      const botonesToppin = document.querySelectorAll('.boton-toppin');
+      const subopciones = document.querySelectorAll('.subopciones-toppin');
+
+      botonesToppin.forEach((boton, index) => {
+        boton.addEventListener('click', () => {
+          document.querySelector('.botones-img').style.display = 'none';
+          subopciones.forEach(div => div.style.display = 'none');
+          const subopcion = document.getElementById(`sub-${index + 1}`);
+          if (subopcion) subopcion.style.display = 'block';
+        });
+      });
+
+      function volverOpciones() {
+        subopciones.forEach(div => div.style.display = 'none');
+        document.querySelector('.botones-img').style.display = 'flex';
+      }
+
+      function seleccionarTopping(topping) {
+        alert("Agregado: " + topping);
+        volverOpciones();
+      }
+           
+
+
+
+
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.src);
+        }
+
+function drop(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  const canasto = document.getElementById("contenido-canasto");
+
+  // Calcula la posición relativa al contenedor
+  const rect = canasto.getBoundingClientRect();
+  const x = ev.clientX - rect.left;
+  const y = ev.clientY - rect.top;
+
+  const img = document.createElement("img");
+  img.src = data;
+  img.style.width = "80px";
+  img.style.position = "absolute";
+  img.style.left = (x - 30) + "px";
+  img.style.top = (y - 20 ) + "px";
+  img.style.pointerEvents = "auto";
+  img.draggable = false;
+
+  img.addEventListener("click", function () {
+    img.remove();
+  });
+
+  canasto.appendChild(img);
+}
+
+
+
+
+
+
+
+  const canastos = {
+    'blanco1.png': 'blancofrontal1.png',
+    'blanco2.png': 'blancofrente2.png',
+    'blanca3.png': 'blancafrontal3.png',
+    'negro1.png': 'negrofrontal1.png',
+    'negro2.png': 'negrofrontal2.png',
+    'negro3.png': 'negrofrontal3.png',
+    'rosada1.png': 'rosadafrontal1.png',
+    'rosada2.png': 'rosadafrontal2.png',
+    'rosada3.png': 'rosadafrontal3.png'
+  };
+
+  function changeBasket(backgroundSrc) {
+    // Cambiar imagen de fondo
+    const fondo = document.querySelector('.img-previa img');
+    fondo.src = backgroundSrc;
+
+    // Obtener solo el nombre del archivo
+    const fileName = backgroundSrc.split('/').pop();
+
+    // Buscar la imagen correspondiente del frente
+    const frenteFile = canastos[fileName];
+
+    // Cambiar imagen del frente
+    const frente = document.getElementById('canasto-frente');
+    frente.src = 'Imagenes/cajas personalizadas/' + frenteFile;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+ </script>
+
+
+</body>
+</html>

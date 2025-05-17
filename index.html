@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Logo principal -->
+  <div class="logo-prin">
+    <img src="Imagenes/logo principal.png" alt="">
+  </div>
+
+  <!-- Video de fondo -->
+  <div class="video-1">
+    <video src="videos/background.mp4" loop muted autoplay></video>
+  </div>
+
+  <!-- Menú de navegación -->
+  <header class="header">
+    <ul class="menu-1">
+      <a class="item" href="Desayunos.html">Desayunos</a>
+      <a class="item" href="diseñosflorales.html">Diseños Florales</a>
+      <a class="item" href="Diseñospersono.html">Cajas Personalizadas</a>
+    </ul>
+
+    <label for="menu">
+      <img src="Imagenes/menu.png" class="menu-icono" alt="">
+    </label>
+
+    <div class="menu-2">
+      <input type="Buscar" placeholder="Buscar">
+      <a href="#"><img src="Imagenes/carrito.png" alt=""></a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main">
+    <div class="titulo-1">
+      <h1>Conócenos</h1>
+    </div>
+
+    <section class="section-1">
+      <div class="card">
+        <img src="IMG/imagen1.png" alt="Niños">
+        <a href="Desayunos.html"><h1>Ver Más</h1></a>
+      </div>
+      <div class="card">
+        <img src="IMG/imagen2.png" alt="Adultos">
+        <a href="diseñosflorales.html"><h1>Ver Más</h1></a>
+      </div>
+      <div class="card">
+        <img src="IMG/imagen3.png" alt="Adultos">
+        <a href="Diseñospersono.html"><h1>Ver Más</h1></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sección destacados -->
+  <section class="section-destacados">
+    <div class="destacados">
+      <h1>DESTACADOS</h1>
+      <div class="destacados-contenido">
+        
+        <!-- Caja de Comentarios -->
+        <!-- <div class="comentarios">
+          <h2>Comentarios</h2>
+          <textarea id="comentarioInput" placeholder="Escribe tu comentario..."></textarea>
+          <div id="comentariosGuardados"></div>
+        </div> -->
+            <div class="carousel-container">
+              <div class="carousel-track" id="carousel-track">
+    <!-- Mensajes: original + duplicado para bucle -->
+                <div class="message">
+                  <img src="IMG/Comentarios/1.png" />
+                  <div class="bubble">"¡Qué combinación de colores tan hermosa! Se nota que hay mucho gusto y cuidado en el diseño."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/2.png" />
+                  <div class="bubble">"Estos arreglos tienen un equilibrio perfecto entre elegancia y frescura."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/3.png" />
+                  <div class="bubble">"Cada flor está colocada con tanta precisión… se ve muy profesional."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/4.png" />
+                  <div class="bubble">"Huelen delicioso y lucen aún mejor, ¡parecen sacados de una revista!"</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/5.png" />
+                  <div class="bubble">"Definitivamente estos arreglos alegran cualquier espacio, son impresionantes."</div>
+                </div>
+
+    <!-- Duplicado para efecto carrusel infinito -->
+                <div class="message">
+                  <img src="IMG/Comentarios/1.png" />
+                  <div class="bubble">"¡Qué combinación de colores tan hermosa! Se nota que hay mucho gusto y cuidado en el diseño."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/2.png" />
+                  <div class="bubble">"Estos arreglos tienen un equilibrio perfecto entre elegancia y frescura."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/3.png" />
+                  <div class="bubble">"Cada flor está colocada con tanta precisión… se ve muy profesional."</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/4.png" />
+                  <div class="bubble">"Huelen delicioso y lucen aún mejor, ¡parecen sacados de una revista!"</div>
+                </div>
+                <div class="message">
+                  <img src="IMG/Comentarios/5.png" />
+                  <div class="bubble">"Definitivamente estos arreglos alegran cualquier espacio, son impresionantes."</div>
+                </div>
+              </div>
+            </div>
+        
+        
+        <!-- Carrusel de videos a la derecha -->
+        <div class="video-carrusel">
+          <ul class="slider-destacados">
+            <li><video autoplay loop muted src="destacadis/1.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/2.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/6.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/3.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/4.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/5.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/7.mp4"></video></li>
+            <!-- Duplicado para carrusel infinito -->
+            <li><video autoplay loop muted src="destacadis/1.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/2.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/6.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/3.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/4.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/5.mp4"></video></li>
+            <li><video autoplay loop muted src="destacadis/7.mp4"></video></li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <section class="footer-1">
+      <div class="footer-logo">
+        <img src="Imagenes/logo principal.png" alt="">
+      </div>
+
+      <div class="linea-vertical"></div>
+
+      <div class="texto-footer">
+        <h1>SOBRE NOSOTROS</h1>
+        <p>Rosalías es una empresa especializada en detalles que inspiran emociones, ofreciendo desayunos sorpresa, arreglos florales y regalos personalizados. Cada entrega está pensada para celebrar, sorprender y transmitir cariño en fechas especiales o cualquier día del año.</p>
+      </div>
+
+      <div class="linea-vertical"></div>
+
+      <div class="imagenes-footer">
+        <h1 class="contactanos-1">INSTAGRAM</h1>
+        <div class="iconos-contact">
+          <a href="https://www.instagram.com/rosaliasneiva/" target="_blank">
+          <img src="contactanos/instagram.png" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <!-- Botón flotante para subir -->
+  <button id="botonSubir" title="Subir">↑</button>
+  
+  <!-- Botón de WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=573142021376&text=%20¡Hola!%20Quiero%20más%20información%20sobre%20los%20productos" target="_blank" id="botonWhatsApp">
+    <img src="contactanos/whatsapp.png" alt="WhatsApp" />
+  </a>
+  
+  <!-- Botón de Subir -->
+  <button id="botonSubir" title="Subir">↑</button>
+  
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Duplicar videos del slider para que se repita el carrusel
+    const slider = document.querySelector('.slider-destacados');
+    slider.innerHTML += slider.innerHTML;
+  </script>
+
+</body>
+</html>
