@@ -203,9 +203,6 @@ body {
 
     /* Botones */
 
-    .content-abanico a{
-   
-    }
 
 
     .boton-i{
@@ -214,52 +211,6 @@ body {
         border-radius: 20px;
     
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -905,4 +856,98 @@ footer {
 
 /* otros cambios */
 
+/* RESPONSIVE */
 
+/* Dispositivos móviles (hasta 768px) */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .header {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .menu-1 {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    
+    .menu-1.active {
+        display: flex;
+    }
+    
+    .menu-2 {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    /* Carrusel */
+    .carousel {
+        height: 500px;
+        top: 150px;
+        margin: 0 10px;
+    }
+    
+    .carousel .list .item .title {
+        font-size: 2em !important;
+    }
+    
+    .thumbnail .item {
+        width: 100px;
+        height: 150px;
+    }
+    
+    /* Tarjetas */
+    .card {
+        max-width: 90%;
+        margin: 10px auto;
+    }
+    
+    /* Footer */
+    .footer-1 {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .linea-vertical {
+        height: 2px;
+        width: 80%;
+    }
+}
+
+/* Tablets (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .carousel {
+        height: 600px;
+        top: 250px;
+    }
+    
+    .carousel .list .item .title {
+        font-size: 3em !important;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    #botonWhatsApp {
+        bottom: 70px;
+        right: 10px;
+    }
+    
+    #botonSubir {
+        bottom: 10px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+
+h1, h2, h3 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}

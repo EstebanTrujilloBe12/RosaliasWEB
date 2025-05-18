@@ -12,7 +12,7 @@ a{
     overflow: hidden;
     border-radius: 10px;   /* Opcional: bordes redondeados */
     position: relative;
-    z-index: 2; /* Por encima del video */
+    z-index: 1; /* Por encima del video */
     top: 380px; /* o ajusta según altura de tu header/video */
     padding-bottom: 100px; /* Espacio para no chocar con el footer */
     /* margin-left: 30px; */
@@ -124,12 +124,12 @@ a{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #eee4;
+    background-color: rgba(0, 0, 0, 0.389);
     border: none;
     color: #fff;
     font-family: monospace;
     font-weight: bold;
-    transition: .5s;
+    transition: .15s;
 }
 .arrows button:hover{
     background-color: #fff;
@@ -245,7 +245,7 @@ a{
 }
 
 .carousel.prev .list .item:nth-child(2) img{
-    animation: outFrame 0.5s linear 1 forwards;
+    animation: outFrame 0.15s linear 1 forwards;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -263,7 +263,7 @@ a{
 .carousel.prev .thumbnail .item:nth-child(1){
     overflow: hidden;
     opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
+    animation: showThumbnail .15s linear 1 forwards;
 }
 .carousel.next .arrows button,
 .carousel.prev .arrows button{
@@ -352,6 +352,162 @@ a{
 
 
   .iconos-contact img{
-    transition:0.5s;
+    transition:0.15s;
 
   }
+
+
+/* Estilos del carrito */
+.cart-bubble {
+  background: #f1683a;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  top: 3px;
+  right: 8px;
+}
+
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  color: #000;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #000;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Estilos del pie del carrito */
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #eee;
+}
+
+.checkout-btn {
+  background: #f1683a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.checkout-btn:hover {
+  background: #e55b2d;
+  transform: translateY(-2px);
+}
+
+
+/* MODAL MENSAJE DE COMPRA */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 15% auto;
+  padding: 25px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  animation: popIn 0.4s;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.modal-content img {
+  width: 100px;
+  margin: 15px 0;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .carousel .list .item .content {
+        top: 10%;
+        padding-right: 0;
+    }
+    
+    .arrows {
+        top: 70%;
+        right: 40%;
+    }
+    
+    .carousel .list .item .buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        margin: 30% auto;
+    }
+    
+    .checkout-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cart-dropdown {
+        width: 250px;
+        right: -50px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}

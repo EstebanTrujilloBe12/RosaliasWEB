@@ -32,8 +32,24 @@
     </label>
 
     <div class="menu-2">
-      <input type="Buscar" placeholder="Buscar">
-      <a href="#"><img src="Imagenes/carrito.png" alt=""></a>
+       <!-- Botón del carrito -->
+      <div class="cart-wrapper">
+        <a href="#" id="cartToggle">
+          <img src="Imagenes/carrito.png" alt="Carrito">
+          <span id="cartBubble" class="cart-bubble"></span>
+        </a>
+    <!-- Dropdown del carrito -->
+        <div id="cartDropdown" class="cart-dropdown">
+          <div id="cartItems"></div>
+          <div class="cart-footer">
+            <div id="cartTotal"></div>
+            <button id="checkoutButton" class="checkout-btn">
+              Comprar
+              <span id="cartBubble" class="cart-bubble"></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -50,7 +66,7 @@
                         <!-- lorem 50 -->
                         Este Arreglo contiene una caja en forma de corazon con 60 rosas rojas, unos chocolates de ferrero rocher y decoracion al gusto.
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(5)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -62,7 +78,7 @@
                     <div class="des">
                         Este Arreglo contiene una caja llena de flores, tulipanes, rosas y margaritas con una caja completa de 10 ferrero rocher.
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(6)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -74,7 +90,7 @@
                     <div class="des">
                         Este Arreglo contiene una caja de rosas de cualquier color que desees, con unos pequeños huevos de chocolates dorados.
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(7)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -86,7 +102,7 @@
                     <div class="des">
                         Este Arreglo contiene una pequeña Caja de rosas y flores en las que pueden entrar, Rosas, Margaritas, Tulipanes, Petunias y otras mas que desees.
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(8)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
         </div>
@@ -192,6 +208,7 @@
   <!-- Scripts -->
   <script src="script.js"></script>
   <script src="app.js"></script>
+  <script src="carritocompras.js"></script>
   <script>
     // Duplicar videos del slider para que se repita el carrusel
     const slider = document.querySelector('.slider-destacados');
@@ -199,4 +216,13 @@
   </script>
 
 </body>
+<!-- Modal de Compra Exitosa -->
+<div id="compraExitosaModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>¡Compra Exitosa! 🎉</h2>
+    <p>Gracias por tu compra. Tu pedido está en camino.</p>
+    <img src="Imagenes/checkmark.gif" alt="Éxito">
+  </div>
+</div>
 </html>

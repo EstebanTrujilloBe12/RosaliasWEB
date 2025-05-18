@@ -32,8 +32,24 @@
     </label>
 
     <div class="menu-2">
-      <input type="Buscar" placeholder="Buscar">
-      <a href="#"><img src="Imagenes/carrito.png" alt=""></a>
+       <!-- Botón del carrito -->
+      <div class="cart-wrapper">
+        <a href="#" id="cartToggle">
+          <img src="Imagenes/carrito.png" alt="Carrito">
+          <span id="cartBubble" class="cart-bubble"></span>
+        </a>
+    <!-- Dropdown del carrito -->
+        <div id="cartDropdown" class="cart-dropdown">
+          <div id="cartItems"></div>
+          <div class="cart-footer">
+            <div id="cartTotal"></div>
+            <button id="checkoutButton" class="checkout-btn">
+              Comprar
+              <span id="cartBubble" class="cart-bubble"></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -50,7 +66,7 @@
                         <!-- lorem 50 -->
                        Este arreglo contiene 2 globos negros, Una coronita, un juguito de naranja en botella, dos cajitas con fruta un dulce mensaje que desees, 2 ferrero rocher y 1 flor artificial. 
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(9)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -62,7 +78,7 @@
                     <div class="des">
                        Este arreglo contiene 2 bombas, una botella de Baileys mediana, una corona y un jugo de naranja, con unos girasoles, un pastel de chocolate y una vela, con una cajita de helado.
                     </div>
-                   <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                   <div class="buttons"><button onclick="addToCart(10)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -74,7 +90,7 @@
                     <div class="des">
                         Este Arreglo contiene un pastel grande con flores, rosas, dulces y un croazaint, con una pequeña nota que desees para esa persona especial.
                     </div>
-                    <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                    <div class="buttons"><button onclick="addToCart(11)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
             <div class="item">
@@ -86,7 +102,7 @@
                     <div class="des">
                         Este arreglo contiene en una pequeña caja una virgen de guadalupe dorada, un juguito al gusto, una caja de frutas y una de Helado o lo que desees, con flores en un pequeño jarron y una nota.
                     </div>
-                        <div class="buttons"><button onclick="addToCart(1)">Comprar</button> <!-- Cambia el ID según el producto --></div>
+                        <div class="buttons"><button onclick="addToCart(12)">Comprar</button> <!-- Cambia el ID según el producto --></div>
                 </div>
             </div>
         </div>
@@ -193,6 +209,7 @@
   <!-- Scripts -->
   <script src="script.js"></script>
   <script src="app.js"></script>
+  <script src="carritocompras.js"></script>
   <script>
     // Duplicar videos del slider para que se repita el carrusel
     const slider = document.querySelector('.slider-destacados');
@@ -200,4 +217,13 @@
   </script>
 
 </body>
+<!-- Modal de Compra Exitosa -->
+<div id="compraExitosaModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>¡Compra Exitosa! 🎉</h2>
+    <p>Gracias por tu compra. Tu pedido está en camino.</p>
+    <img src="Imagenes/checkmark.gif" alt="Éxito">
+  </div>
+</div>
 </html>
